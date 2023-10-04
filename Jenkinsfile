@@ -8,7 +8,7 @@ pipeline {
                   sh '''
                     ls -ltr
                     pwd
-                    echo "Hello Script"
+                    echo "Hello from github push webhook event"
                     '''
             }
         }
