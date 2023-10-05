@@ -4,9 +4,9 @@ pipeline {
     options {
         timeout(time: 1, unit: 'HOURS')
     } 
-     triggers {
-        cron('* * * * *')
-    }
+    // triggers {
+    //    cron('* * * * *')
+    //}
     // it is global environment and accesable to all environments
     environment { 
         USER = 'chandu'
@@ -62,6 +62,19 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
 
                 echo "Password: ${params.PASSWORD}"
+            }
+        }
+        stage('Example') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
+            steps {
+                echo "Hello, ${PERSON}, nice to meet you."
             }
         }
     }
