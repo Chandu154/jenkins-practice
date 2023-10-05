@@ -3,7 +3,8 @@ pipeline {
     agent { node { label 'AGENT-1' } }
     options {
         timeout(time: 1, unit: 'HOURS')
-    }
+    } 
+    // it is global environment and accesable to all environments
     environment { 
         USER = 'chandu'
     }
@@ -30,6 +31,16 @@ pipeline {
               //error 'this is failed'
             }
         }
+        // below one is particular satge environment
+        stage('Example') {
+            environment { 
+                AUTH = credentials('ssh-auth') 
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
+    }
     }
         post { 
         always { 
