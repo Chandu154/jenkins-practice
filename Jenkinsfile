@@ -126,7 +126,7 @@ pipeline {
     
         post { 
         always { 
-            echo 'I will always say Hello again!'
+            echo 'I will always run whether job is success or not'
         }
         success{
             echo 'I will run only when job is success'
@@ -135,4 +135,4 @@ pipeline {
             echo 'I will run when failure'
         }
     }
-
+}
