@@ -4,6 +4,9 @@ pipeline {
     options {
         timeout(time: 1, unit: 'HOURS')
     } 
+     triggers {
+        cron('* * * * *')
+    }
     // it is global environment and accesable to all environments
     environment { 
         USER = 'chandu'
