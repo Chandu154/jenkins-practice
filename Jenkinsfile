@@ -77,6 +77,14 @@ pipeline {
                 echo "Hello, ${PERSON}, nice to meet you."
             }
         }
+        stage('PROD deploy'){
+            when{
+                branch 'master'
+            }
+            steps{
+                echo "deploying to PROD"
+            }
+        }
     }
     
         post { 
