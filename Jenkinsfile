@@ -78,7 +78,7 @@ pipeline {
             }
         }
         stage('PROD deploy'){
-            when{
+            when {
                 branch 'master'
             }
             steps{
